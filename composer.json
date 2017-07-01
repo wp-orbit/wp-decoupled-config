@@ -8,5 +8,10 @@
             "email": "dev@zawntech.com",
             "role": "Developer"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "WP_Orbit\\DecoupledConfig\\": "code/"
+        }
+    }
 }
