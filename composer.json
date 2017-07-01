@@ -1,0 +1,12 @@
+{
+    "name": "wp-orbit/wp-decoupled-config",
+    "description": "Configuration for decoupled WordPress project setup.",
+    "license": "GPL2+",
+    "authors": [
+        {
+            "name": "Marty Eason",
+            "email": "dev@zawntech.com",
+            "role": "Developer"
+        }
+    ],
+}
