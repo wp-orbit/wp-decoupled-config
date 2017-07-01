@@ -34,7 +34,7 @@ class Install
 	{
 		$this->create_configuration_directory();
 		$this->copy_stubs();
-		$this->get_auth_keys();
+		$this->install_auth_keys();
 	}
 
 	public function create_configuration_directory()
@@ -51,9 +51,11 @@ class Install
 	{
 		// Project configuration directory.
 		$config_directory = $this->root_path . '/config/';
+		$www_directory = $this->root_path . '/www/';
 
 		// Paths to subs.
 		$config_dev_stub = __DIR__ . '/../../stubs/wp-config-dev.php.stub';
+		$config_local_stub = __DIR__ . '/../../stubs/wp-config-local.php.stub';
 		$config_production_stub = __DIR__ . '/../../stubs/wp-config-production.php.stub';
 
 		// Copy stubs.
@@ -66,12 +68,20 @@ class Install
 		if ( ! file_exists( $target ) ) {
 			copy( $config_production_stub, $target );
 		}
+
+		$target = $www_directory . 'wp-config-local.php';
+		if ( ! file_exists( $target ) ) {
+			copy( $config_local_stub, $target );
+		}
 	}
 
-	public function get_auth_keys()
+	public function install_auth_keys()
 	{
 		$url = 'https://api.wordpress.org/secret-key/1.1/salt/';
 		$data = "<?php\n" . file_get_contents( $url );
-		file_put_contents( $this->root_path . '/config/auth-keys.php', $data );
+		$target = $this->root_path . '/config/auth-keys.php';
+		if ( ! file_exists( $target ) ) {
+			file_put_contents( $target, $data );
+		}
 	}
 }
