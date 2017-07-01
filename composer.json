@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "WP_Orbit\\DecoupledConfig\\": "code/"
+            "WPOrbit\\DecoupledConfiguration\\": "code/"
         }
     }
 }

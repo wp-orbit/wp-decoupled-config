@@ -1,5 +1,5 @@
 <?php
-namespace WP_Orbit\DecoupledConfig\Setup;
+namespace WPOrbit\DecoupledConfiguration\Setup;
 
 class Install
 {
